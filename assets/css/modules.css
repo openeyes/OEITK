@@ -1,0 +1,9 @@
+li.messagelistEven { user-select: none; -moz-user-select: none; -khtml-user-select:none; background-color: #c6ebb9; }
+li.messagelistOdd { user-select: none; -moz-user-select: none; -khtml-user-select:none; background-color: #e0f8d8;}
+
+ul#messageList { list-style: none; margin: 0; padding: 0; font-size: 11px; }
+ul#messageList li { line-height: 32px; padding-left: 4px; }
+ul#messageList li.header { font-weight: bold; margin-bottom: 0px; }
+ul#messageList span { display: inline-block; }
+ul#auditList span.messageId { width:120px; }
+ul#auditList span.messageDelivered { width:130px; }
