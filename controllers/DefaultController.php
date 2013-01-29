@@ -137,7 +137,6 @@ class DefaultController extends BaseController
 		
 		$xml = new DOMDocument();
 		$xml->loadXML($msg->message);
-		//error_log(print_r($xml->saveXML(), true));
 	
 		return $this->getMessageXSLT()->transformToXml($xml);
 	

@@ -27,12 +27,14 @@
 		<div class="grid-view">
 		<ul id="messageList">
 			<li class="header">
-				<span>ID</span>
+				<span class="messageId">ID</span>
+				<span class="timestamp">Date Delivered</span>
 			</li>
 			<div id="messageListData">
 				<?php foreach ($messages as $i => $message) { ?>
 					<li class="messagelist<?php echo ($i % 2 == 0) ? 'Even' : 'Odd'; ?>">
-						<span class="timestamp"><?php echo $message->messageId ?></span>
+						<span class="messageId"><?php echo $message->messageId ?></span>
+						<span class="timestamp"><?php echo $message->delivered ?></span>
 					</li>
 				<?php }?>
 			</div>
