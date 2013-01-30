@@ -23,6 +23,16 @@
 
 class OEITKMessage extends OEITKRecord
 {
+	private $_messageDOM;
+	private $_messageXPath;
+	private $_first_name;
+	private $_last_name;
+	
+	// XPATHS describing location of data that are useful properties on the message to display
+	// note the use of the "x" prefix, which is the default namespace prefix assigned when the XML Message document is parsed
+	private static $XPATH_PATIENT_FIRST_NAME = "//x:recordTarget/x:patientRole/x:patient/x:name/x:given";
+	private static $XPATH_PATIENT_LAST_NAME = "//x:recordTarget/x:patientRole/x:patient/x:name/x:family";
+	
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -31,6 +41,66 @@ class OEITKMessage extends OEITKRecord
 	public function tableName()
 	{
 		return 'message';
+	}
+	
+	public function getMessageDOM() {
+		if ($this->_messageDOM == null) {
+			
+			$this->_messageDOM = new DOMDocument();
+			$this->_messageDOM->preserveWhiteSpace = false;
+			$this->_messageDOM->loadXML($this->message);
+		}
+		return $this->_messageDOM;
+	}
+	
+	public function getMessageXPath() {
+		if ($this->_messageXPath == null) {
+			$dom = $this->getMessageDOM();
+			$this->_messageXPath = new DOMXPath($dom);
+			// provide a default namespace to work from
+			$this->_messageXPath->registerNamespace("x", $dom->lookupNamespaceUri($dom->namespaceURI));
+		}
+		return $this->_messageXPath;
+	}
+	
+	public function getPatientFirstName() {
+		if ($this->_first_name == null) {
+			$xpath = $this->getMessageXPath();
+			$res = $xpath->query(self::$XPATH_PATIENT_FIRST_NAME);
+			if (!$res->length) {
+				$this->_first_name = "-";	
+			}
+			else {
+				$this->_first_name = $res->item(0)->nodeValue;
+			}
+		}
+		return $this->_first_name;
+	}
+	
+	public function getPatientLastName() {
+		if ($this->_last_name == null) {
+			$xpath = $this->getMessageXPath();
+			$res = $xpath->query(self::$XPATH_PATIENT_LAST_NAME);
+			if (!$res->length) {
+				$this->_last_name = "-";
+			}
+			else {
+				$this->_last_name = $res->item(0)->nodeValue;
+			}
+		}
+		return $this->_last_name;
+	}
+	
+	public function getPatientName()
+	{
+		return $this->getPatientLastName() . ", " . $this->getPatientFirstName();
+	}
+	
+	public function markAsViewed() {
+		//if ($this->viewed == null) {
+			$this->viewed = Helper::timestampToDB(time());
+			$this->save();
+		//}
 	}
 	
 }

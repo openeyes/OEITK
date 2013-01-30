@@ -19,26 +19,52 @@
 ?>
 <h2>ITK Messages</h2>
 <div class="fullWidth fullBox clearfix">
-	<div id="whiteBox">
-		<p><strong></strong></p>
-	</div>
-	<div id="waitinglist_display">
 	
+	<div id="itkmessages_display">
+	
+		<table class="grid reduceheight nodivider">
+		<thead>
+		<tr>
+			<th>ID</th>
+			<th>Date Delivered</th>
+			<th>Date Viewed</th>
+			<th>Patient Name</th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($messages as $i => $message) { ?>
+			<tr class="<?php echo ($i % 2 == 0) ? "even" : "odd"; ?> clickable" data-href="<?php echo $this->createUrl('view', array('id' => $message->messageId)); ?>">
+				<td><?php echo $message->messageId ?></td>
+				<td><?php echo $message->delivered ?></td>
+				<td><?php echo $message->viewed ?></td>
+				<td><?php echo $message->patientName ?></td>
+			</tr>
+		<?php } ?>
+		</tbody>
+		</table>
+		<!-- 
 		<div class="grid-view">
 		<ul id="messageList">
 			<li class="header">
 				<span class="messageId">ID</span>
 				<span class="timestamp">Date Delivered</span>
+				<span class="timestamp">Date Viewed</span>
+				<span class="name">Patient Name</span>
 			</li>
 			<div id="messageListData">
 				<?php foreach ($messages as $i => $message) { ?>
+					<a href="<?php echo $this->createUrl('view', array('id' => $message->messageId)); ?>">
 					<li class="messagelist<?php echo ($i % 2 == 0) ? 'Even' : 'Odd'; ?>">
 						<span class="messageId"><?php echo $message->messageId ?></span>
 						<span class="timestamp"><?php echo $message->delivered ?></span>
+						<span class="timestamp"><?php echo $message->viewed ?></span>
+						<span class="name"><?php echo $message->patientName ?></span>
 					</li>
+					</a>
 				<?php }?>
 			</div>
 		</ul>
+		 -->
 </div>
 		
 		

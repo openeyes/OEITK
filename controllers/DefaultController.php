@@ -25,6 +25,7 @@ class DefaultController extends BaseController
 	*/
 	public $layout='//layouts/main';
 	public $assetPath;
+	public $pageTitle;
 
 	public function filters()
 	{
@@ -46,9 +47,15 @@ class DefaultController extends BaseController
 
 	public function init() {
 		parent::init();
-	
+		$this->pageTitle = Yii::app()->name . ' - ITK';
+		
 		$ex = explode("/",substr(Yii::app()->getRequest()->getRequestUri(),strlen(Yii::app()->baseUrl),strlen(Yii::app()->getRequest()->getRequestUri())));
-		$action = $ex[3];
+		if (sizeof($ex) < 4) {
+			$action = 'index';
+		}
+		else {
+			$action = $ex[3];
+		}
 	
 		if ($action == 'print') {
 			$scriptMap = Yii::app()->clientScript->scriptMap;
@@ -118,6 +125,8 @@ class DefaultController extends BaseController
 			throw new CHttpException(403, 'Invalid message id.');
 		}
 		
+		$msg->markAsViewed();
+		
 		$this->render('view', array(
 			'message' => $msg,		
 		));
@@ -125,7 +134,7 @@ class DefaultController extends BaseController
 	
 	private function getMessageXSLT() {
 		$xsl = new DOMDocument();
-		$xsl->load(Yii::getPathOfAlias('application.modules.'.$this->getModule()->name.'.xml') . "/CDA_NPfIT_Document_Renderer.xsl");
+		$xsl->load(Yii::getPathOfAlias('application.modules.'.$this->getModule()->name.'.xml') . "/OEITKMessage_transform.xsl");
 	
 		$proc = new XSLTProcessor();
 		error_reporting(-1);
@@ -135,8 +144,7 @@ class DefaultController extends BaseController
 	
 	public function getHTMLMessage($msg) {
 		
-		$xml = new DOMDocument();
-		$xml->loadXML($msg->message);
+		$xml = $msg->getMessageDOM();
 	
 		return $this->getMessageXSLT()->transformToXml($xml);
 	

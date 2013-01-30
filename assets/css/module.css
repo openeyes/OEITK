@@ -1,0 +1,46 @@
+li.messagelistEven { user-select: none; -moz-user-select: none; -khtml-user-select:none; background-color: #c6ebb9; }
+li.messagelistEven:hover { background-color: #b4c996; }
+li.messagelistOdd { user-select: none; -moz-user-select: none; -khtml-user-select:none; background-color: #e0f8d8;}
+li.messagelistOdd:hover { background-color: #b0d6b6;}
+
+ul#messageList { list-style: none; margin: 0; padding: 2px; font-size: 11px; background-color: #fff; }
+ul#messageList li { line-height: 24px; padding-left: 4px; cursor: pointer; }
+
+ul#messageList li.header { font-weight: bold; margin-bottom: 0px; }
+ul#messageList span { display: inline-block; }
+ul#messageList span.messageId { width:120px; }
+ul#messageList span.timestamp { width:130px; }
+
+#itkmessages_display { padding: 10px; }
+
+/* ====== TABLES ====== */
+/* general tr */
+table tr.odd	{ background-color: #edf4f9; border-bottom: 1px solid #ccd; }
+table tr.even	{ background-color: #e1eef9; border-bottom: 1px solid #ccd; }
+table tr.odd:hover, tr.even:hover { background-color: #ffe6b2; border-bottom-color: #999; }
+/* dark version */
+table tr.odd.dark { background-color: #d0dce6; border-bottom: 1px solid #ccc; }  	/* #c5cfdb */
+table tr.even.dark { background-color: #ccd6e3; border-bottom: 1px solid #ccc; } 	/* #b9c3ce */
+table tr.odd.dark:hover, tr.even.dark:hover { background-color: #ffe8b7; border-bottom-color: #999; }
+/* clickable table row  */
+table tr.clickable:hover, table tr.dark.clickable:hover { background:#3665ff; color:white; }
+table tr:last-child { border-bottom: none; }
+
+/* GRID */
+table.grid { width:100%; } 
+table.grid th, table.grid tfoot td { text-align: left; vertical-align: middle; background:#ddd; color: #444; font-size: 11px; font-weight:bold; min-width:30px; padding:10px; border-right:1px solid #bbb;}
+table.grid td { text-align: left; padding:10px; border-right:1px solid #ccc; } 
+table.grid th:last-child, table.grid td:last-child { border-right: none; }
+table.grid td.nowrap { white-space: nowrap; }
+table.grid td.icons > img {margin-right:4px; margin-bottom:4px; }
+/* customise */
+table.grid.margintop { margin-top:10px; }
+table.grid.marginbottom { margin-bottom:10px; }
+table.grid.reduceheight td { padding-top:5px; padding-bottom:5px; }
+table.grid.nodivider td, table.grid.nodivider th { border-right:none; }
+table.grid.valignmiddle tr td { vertical-align:middle; }
+/* table grid bottom grey border to match thead */
+div.tablegrid { background:#ddd; }
+div.tablegrid.end {  min-height:15px; }
+div.tablegrid.footer { padding:5px 10px; }
+div.tablegrid.footer h6 { color: #444; font-size: 11px; font-weight:bold; padding:10px 0;}
