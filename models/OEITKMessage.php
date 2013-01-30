@@ -97,10 +97,10 @@ class OEITKMessage extends OEITKRecord
 	}
 	
 	public function markAsViewed() {
-		//if ($this->viewed == null) {
+		if ($this->viewed == null) {
 			$this->viewed = Helper::timestampToDB(time());
 			$this->save();
-		//}
+		}
 	}
 	
 }
