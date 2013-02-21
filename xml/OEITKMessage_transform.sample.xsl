@@ -16,63 +16,54 @@
 		<xsl:apply-templates select="n1:ClinicalDocument"/>
 	</xsl:template>
 	<xsl:template match="n1:ClinicalDocument">
-		<html>
-			<head>
-				<xsl:comment>$transformVersion=1.2 $updateDate=21/11/2012 Interoperability Team</xsl:comment>	
-				<!-- <meta name='Generator' content='&CDA-Stylesheet;'/> -->
-				<xsl:comment> Do NOT edit this HTML directly, it was generated via an XSLT transformation from the original release 2 CDA
-          Document. </xsl:comment>
-				<title>
-					<xsl:value-of select="$title"/>
-				</title>
 				<style type="text/css">
-						body { color: #000000; font-size: 10pt; line-height: normal; font-family: Verdana, Arial, sans-serif; margin: 10px; }
-						a { color: #0099ff; text-decoration: none }
-						.input { color: #003366; font-size: 10pt; font-family: Verdana, Arial, sans-serif; background-color: #ffffff; border: solid 1px }
-						div.titlebar { background-color: #eeeeff; border: 1px solid #000000; padding: 3px; margin-bottom: 20px;}
-						div.doctitle { font-size: 14pt; font-weight: bold; margin-bottom: 10px;}
-						div.header { font-size: 8pt; margin-bottom: 30px; border: 1px solid #000000; background-color: #ffffee;}
-						div.textsection { font-size: 8pt; margin-bottom: 2px; border: 1px solid #000000; background-color:  #ffffff;}
-						div.footer { font-size: 8pt; margin-top: 30px; border: 1px solid #000000; background-color: #ffffee;}
-						p {margin-top: 2px; margin-bottom: 6px;}
-						h1 { font-size: 14pt; font-weight: bold; color: #000000; margin-top: 15px; margin-bottom: 20px;}
-						h2 { font-size: 12pt; font-weight: bold; color: #000000; margin-top: 10px; margin-bottom: 15px; }
-						h3 { font-size: 10pt; font-weight: bold; color: #000000; margin-top: 8px; margin-bottom: 10px; }
-						h4 { font-size: 10pt; font-weight: bold; text-decoration: underline; color: #000000; margin-top: 6px; margin-bottom: 6px; }
-						h5 { font-size: 10pt; font-weight: normal; text-decoration: underline;  color: #000000; margin-top: 5px; margin-bottom: 4px; }
-						h6 { font-size: 10pt; font-weight: normal; color: #000000; margin-top: 2px; margin-bottom: 2px; }
-						table { border: 1px solid #000000; }
-						th.default {padding: 3px; color: #000000; background-color: #dddddd; text-align: left;}
-						th {padding: 3px; color: #000000; background-color: #dddddd;}
-						td {padding: 3px; background-color: #eeeeee;}
-						table.titlebar { border: 0px; background-color: #eeeeff; }
-						td.titlebar {color: #000000; background-color: #eeeeff; font-weight: bold; }
-						th.titlebar {color: #000000; background-color: #eeeeff; font-weight: normal; font-style: italic; text-align: left;}
-						th.sectitle {color: #000000; background-color: #ffffee; font-weight: bold; text-align: left;}
-						th.participant {color: #000000; background-color: #ffffee; font-weight: bold; font-style: italic; text-align: left;}
-						table.header { border: 0px; background-color: #ffffee; }
-						table.textsection { border: 0px; background-color: #ffffff; }
-						td.header {color: #000000; background-color: #ffffee; font-weight: bold;}
-						th.header {color: #000000; background-color: #ffffee; font-weight: normal; text-align: left; font-style:italic;}
-						td.textsection {color: #000000; background-color: #ffffff; font-weight: bold; font-size: 10pt;}
-						th.textsection {color: #000000; background-color: #ffffff; font-weight: normal; text-align: left; font-style:italic; font-size: 10pt;}						
+						.OEITKMessage .input { color: #003366; font-size: 10pt; font-family: Verdana, Arial, sans-serif; background-color: #ffffff; border: solid 1px }
+						.OEITKMessage div.titlebar { background-color: #eeeeff; border: 1px solid #000000; padding: 3px; margin-bottom: 20px;}
+						.OEITKMessage div.doctitle { font-size: 14pt; font-weight: bold; margin-bottom: 10px;}
+						.OEITKMessage div.header { font-size: 8pt; margin-bottom: 30px; border: 1px solid #000000; background-color: #ffffee;}
+						.OEITKMessage div.textsection { font-size: 8pt; margin-bottom: 2px; border: 1px solid #000000; background-color:  #ffffff;}
+						.OEITKMessage div.footer { font-size: 8pt; margin-top: 30px; border: 1px solid #000000; background-color: #ffffee;}
+						.OEITKMessage p {margin-top: 2px; margin-bottom: 6px;}
+						
+						.OEITKMessage h1 { font-size: 14pt; font-weight: bold; color: #000000; margin-top: 15px; margin-bottom: 20px;}
+						.OEITKMessage h2 { font-size: 12pt; font-weight: bold; color: #000000; margin-top: 10px; margin-bottom: 15px; background: none; padding: 0px; display: block;}
+						.OEITKMessage h3 { font-size: 10pt; font-weight: bold; color: #000000; margin-top: 8px; margin-bottom: 10px; }
+						.OEITKMessage h4 { font-size: 10pt; font-weight: bold; text-decoration: underline; color: #000000; margin-top: 6px; margin-bottom: 6px; }
+						.OEITKMessage h5 { font-size: 10pt; font-weight: normal; text-decoration: underline;  color: #000000; margin-top: 5px; margin-bottom: 4px; }
+						.OEITKMessage h6 { font-size: 10pt; font-weight: normal; color: #000000; margin-top: 2px; margin-bottom: 2px; }
+						
+						.OEITKMessage table { border: 1px solid #000000; }
+						.OEITKMessage th.default {padding: 3px; color: #000000; background-color: #dddddd; text-align: left;}
+						.OEITKMessage th {padding: 3px; color: #000000; background-color: #dddddd;}
+						.OEITKMessage td {padding: 3px; background-color: #eeeeee;}
+						.OEITKMessage table.titlebar { border: 0px; background-color: #eeeeff; }
+						.OEITKMessage td.titlebar {color: #000000; background-color: #eeeeff; font-weight: bold; }
+						.OEITKMessage th.titlebar {color: #000000; background-color: #eeeeff; font-weight: normal; font-style: italic; text-align: left;}
+						.OEITKMessage th.sectitle {color: #000000; background-color: #ffffee; font-weight: bold; text-align: left;}
+						.OEITKMessage th.participant {color: #000000; background-color: #ffffee; font-weight: bold; font-style: italic; text-align: left;}
+						.OEITKMessage table.header { border: 0px; background-color: #ffffee; }
+						.OEITKMessage table.textsection { border: 0px; background-color: #ffffff; }
+						.OEITKMessage td.header {color: #000000; background-color: #ffffee; font-weight: bold;}
+						.OEITKMessage th.header {color: #000000; background-color: #ffffee; font-weight: normal; text-align: left; font-style:italic;}
+						.OEITKMessage td.textsection {color: #000000; background-color: #ffffff; font-weight: bold; font-size: 10pt;}
+						.OEITKMessage th.textsection {color: #000000; background-color: #ffffff; font-weight: normal; text-align: left; font-style:italic; font-size: 10pt;}						
 						/*Classes below map to CDA styleCodes*/
-						.Bold {font-weight: bold;}
-						.Underline {text-decoration:underline;}
-						.Italics {font-style:italic;}
-						.Emphasis {font-style:italic;}
-						.Rrule {border-right: 1px solid black;}
-						.Lrule {border-left: 1px solid black;}
-						.Toprule {border-top: 1px solid black;}
-						.Botrule {border-right: 1px solid black;}
+						.OEITKMessage .Bold {font-weight: bold;}
+						.OEITKMessage .Underline {text-decoration:underline;}
+						.OEITKMessage .Italics {font-style:italic;}
+						.OEITKMessage .Emphasis {font-style:italic;}
+						.OEITKMessage .Rrule {border-right: 1px solid black;}
+						.OEITKMessage .Lrule {border-left: 1px solid black;}
+						.OEITKMessage .Toprule {border-top: 1px solid black;}
+						.OEITKMessage .Botrule {border-right: 1px solid black;}
 						/*Banner styles*/
-						div.banner { font-size: 8pt; margin-bottom: 30px; border: 1px solid #000000; background-color: #ffffee;}
-						div.banner TABLE { border: 0px; background-color: #ffffee; font-weight: bold; }
-						div.banner TD { background-color: #ffffee; vertical-align: top; padding-right: 1em;}
-						div.banner TABLE P {margin: 0;}
-						.label {font-style:italic; font-weight: normal;}
+						.OEITKMessage div.banner { font-size: 8pt; margin-bottom: 30px; border: 1px solid #000000; background-color: #ffffee;}
+						.OEITKMessage div.banner TABLE { border: 0px; background-color: #ffffee; font-weight: bold; }
+						.OEITKMessage div.banner TD { background-color: #ffffee; vertical-align: top; padding-right: 1em;}
+						.OEITKMessage div.banner TABLE P {margin: 0;}
+						.OEITKMessage .label {font-style:italic; font-weight: normal;}
 				</style>
-			</head>
+			<div class="OEITKMessage">
 			<xsl:comment>Derived from HL7 Finland R2 Tyylitiedosto: Tyyli_R2_B3_01.xslt</xsl:comment>
 			<xsl:comment>Updated by Calvin E. Beebe, Mayo Clinic - Rochester Mn. </xsl:comment>
 			<xsl:comment>Updated by Keith W. Boone, Dictaphone - Burlington, MA </xsl:comment>
@@ -82,8 +73,6 @@
 			<xsl:comment>Updated by Tim Pilkington - NHS CFH</xsl:comment>
 			<xsl:comment>Updated by Aled Greenhalgh - NHS CFH</xsl:comment>
 			<xsl:comment>Updated by Prashant Trivedi - NHS CFH</xsl:comment>
-			<body>
-				<div style="color:red; font-weight:bold;">***This HTML is created using transform which is provided on as-is basis and content of this HTML is not clinically validated. The transform used to create this HTML can be modified as per local needs.***</div>
 				<xsl:call-template name="patientBanner"/>
 				<xsl:if test="/n1:ClinicalDocument/n1:informant/n1:relatedEntity/n1:relatedPerson/n1:name">
 					<xsl:call-template name="informantBanner"/>
@@ -97,8 +86,7 @@
 				</xsl:if>
 				<xsl:apply-templates select="n1:component/n1:structuredBody|n1:component/n1:nonXMLBody"/>
 				<xsl:call-template name="footer"/>
-			</body>
-		</html>
+			</div>
 	</xsl:template>
 	<!-- Get a Name  -->
 	<xsl:template name="getName">
